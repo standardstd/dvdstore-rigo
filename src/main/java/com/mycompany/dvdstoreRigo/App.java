@@ -1,12 +1,10 @@
 package com.mycompany.dvdstoreRigo;
 
 import com.mycompany.dvdstoreRigo.controller.MovieController;
-import com.mycompany.dvdstoreRigo.entity.Movie;
-import com.mycompany.dvdstoreRigo.repository.GoLiveMovieRepository;
+import com.mycompany.dvdstoreRigo.repository.FileMovieRepository;
 import com.mycompany.dvdstoreRigo.service.IMovieService;
-import com.mycompany.dvdstoreRigo.service.MovieService;
+import com.mycompany.dvdstoreRigo.service.DefaultMovieService;
 
-import java.util.Scanner;
 
 /**
  * Application class
@@ -14,8 +12,8 @@ import java.util.Scanner;
  */
 public class App {
     public static void main(String[] args) {
-        IMovieService movieService = new MovieService();
-        movieService.setMovieRepository(new GoLiveMovieRepository());
+        IMovieService movieService = new DefaultMovieService();
+        movieService.setMovieRepository(new FileMovieRepository());
 
         MovieController movieController = new MovieController();
         movieController.setMovieService(movieService);

@@ -3,7 +3,7 @@ package com.mycompany.dvdstoreRigo.service;
 import com.mycompany.dvdstoreRigo.entity.Movie;
 import com.mycompany.dvdstoreRigo.repository.IMovieRepository;
 
-public class MovieService implements  IMovieService{
+public class DefaultMovieService implements  IMovieService{
 
     private IMovieRepository movieRepository;
 
