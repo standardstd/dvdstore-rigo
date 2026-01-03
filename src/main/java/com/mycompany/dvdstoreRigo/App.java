@@ -1,9 +1,7 @@
 package com.mycompany.dvdstoreRigo;
 
 import com.mycompany.dvdstoreRigo.controller.MovieController;
-import com.mycompany.dvdstoreRigo.repository.FileMovieRepository;
-import com.mycompany.dvdstoreRigo.service.IMovieService;
-import com.mycompany.dvdstoreRigo.service.DefaultMovieService;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 /**
@@ -12,13 +10,11 @@ import com.mycompany.dvdstoreRigo.service.DefaultMovieService;
  */
 public class App {
     public static void main(String[] args) {
-        IMovieService movieService = new DefaultMovieService();
-        movieService.setMovieRepository(new FileMovieRepository());
 
-        MovieController movieController = new MovieController();
-        movieController.setMovieService(movieService);
-
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        MovieController movieController = context.getBean(MovieController.class);
         movieController.addUsingConsole();
+
 
     }
 }
