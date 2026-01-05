@@ -2,15 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byType">
 
-    <bean id="movieRepository" class="com.mycompany.dvdstoreRigo.repository.FileMovieRepository"/>
+    <bean id="movieRepository" class="com.mycompany.dvdstoreRigo.repository.FileMovieRepository">
+        <property name="file" value="movies.csv"/>
+    </bean>
 
-    <bean id="movieService" class="com.mycompany.dvdstoreRigo.service.DefaultMovieService">
-        <property name="movieRepository" ref="movieRepository"/>
+    <bean class="com.mycompany.dvdstoreRigo.service.DefaultMovieService">
+<!--        <property name="movieRepository" ref="movieRepository"/>-->
     </bean>
     <bean id="movieController" class="com.mycompany.dvdstoreRigo.controller.MovieController">
-        <property name="movieService" ref="movieService"/>
+<!--        <property name="movieService" ref="movieService"/>-->
     </bean>
 
 </beans>

@@ -15,6 +15,5 @@ public class App {
         MovieController movieController = context.getBean(MovieController.class);
         movieController.addUsingConsole();
 
-
     }
 }
