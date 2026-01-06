@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byType">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="movieRepository" class="com.mycompany.dvdstoreRigo.repository.FileMovieRepository">
-        <property name="file" value="movies.csv"/>
-    </bean>
-
-    <bean class="com.mycompany.dvdstoreRigo.service.DefaultMovieService">
-<!--        <property name="movieRepository" ref="movieRepository"/>-->
-    </bean>
-    <bean id="movieController" class="com.mycompany.dvdstoreRigo.controller.MovieController">
-<!--        <property name="movieService" ref="movieService"/>-->
-    </bean>
+    <context:annotation-config/>
+    <context:property-placeholder location="classpath:application.properties"/>
+    <context:component-scan base-package="com.mycompany.dvdstoreRigo.controller"/>
+    <context:component-scan base-package="com.mycompany.dvdstoreRigo.repository.file"/>
+    <context:component-scan base-package="com.mycompany.dvdstoreRigo.service"/>
 
 </beans>

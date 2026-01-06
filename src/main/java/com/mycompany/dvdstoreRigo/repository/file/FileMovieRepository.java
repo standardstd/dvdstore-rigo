@@ -1,21 +1,22 @@
-package com.mycompany.dvdstoreRigo.repository;
+package com.mycompany.dvdstoreRigo.repository.file;
 
 import com.mycompany.dvdstoreRigo.entity.Movie;
+import com.mycompany.dvdstoreRigo.repository.IMovieRepository;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@Repository
 public class FileMovieRepository implements IMovieRepository {
-    File file;
+    @Value("${movies.file.location}")
+    private  File file;
 
     public File getFile() {
         return file;
-    }
-
-    public void setFile(File file) {
-        this.file = file;
     }
 
     public void add(Movie movie) {
