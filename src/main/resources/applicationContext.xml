@@ -5,10 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:annotation-config/>
-    <context:property-placeholder location="classpath:application.properties"/>
-    <context:component-scan base-package="com.mycompany.dvdstoreRigo.controller"/>
-    <context:component-scan base-package="com.mycompany.dvdstoreRigo.repository.file"/>
-    <context:component-scan base-package="com.mycompany.dvdstoreRigo.service"/>
+<!--    <context:property-placeholder location="classpath:application.properties"/>-->
+<!--    <context:component-scan base-package="com.mycompany.dvdstoreRigo.controller"/>-->
+<!--    <context:component-scan base-package="com.mycompany.dvdstoreRigo.repository.file"/>-->
+<!--    <context:component-scan base-package="com.mycompany.dvdstoreRigo.service"/>-->
 
 </beans>
